@@ -1,2 +1,0 @@
-# plutus
-## Bank App
