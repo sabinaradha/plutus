@@ -1,5 +1,6 @@
 package com.bankapp.controller;
 
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bankapp.Dao.RoleDao;
+import com.bankapp.domain.PrimaryAccount;
+import com.bankapp.domain.SavingsAccount;
 import com.bankapp.domain.User;
 import com.bankapp.domain.security.UserRole;
 import com.bankapp.service.UserService;
@@ -66,4 +69,16 @@ public class HomeController {
 
 	  }	
   }
+
+	@RequestMapping("/userFront")
+	public String userFront(Principal principal, Model model) {
+		User user = userService.findByUsername(principal.getName());
+		PrimaryAccount primaryAccount = user.getPrimaryAccount();
+		SavingsAccount savingsAccount = user.getSavingsAccount();
+
+		model.addAttribute("primaryAccount", primaryAccount);
+		model.addAttribute("savingsAccount", savingsAccount);
+
+		return "userFront";
+	}
 }

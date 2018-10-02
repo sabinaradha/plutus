@@ -95,27 +95,27 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
-//	public User saveUser(User user) {
-//		return userDao.save(user);
-//	}
-//
-//	public void enableUser(String username) {
-//		User user = findByUsername(username);
-//		user.setEnabled(true);
-//		userDao.save(user);
-//	}
-//
-//	public void disableUser(String username) {
-//		User user = findByUsername(username);
-//		user.setEnabled(false);
-//		System.out.println(user.isEnabled());
-//		userDao.save(user);
-//		System.out.println(username + " is disabled.");
-//	}
-//
-//	public List<User> findUserList() {
-//        return userDao.findAll();
-//    }
+	public User saveUser(User user) {
+		return userDao.save(user);
+ }
+
+	public void enableUser(String username) {
+		User user = findByUsername(username);
+		user.setEnabled(true);
+		userDao.save(user);
+	}
+
+	public void disableUser(String username) {
+		User user = findByUsername(username);
+		user.setEnabled(false);
+		System.out.println(user.isEnabled());
+		userDao.save(user);
+		System.out.println(username + " is disabled.");
+	}
+
+	public List<User> findUserList() {
+        return userDao.findAll();
+    }
 	
 	
 }
